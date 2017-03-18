@@ -1,40 +1,34 @@
-class poney {
+class Poney {
+
     constructor(name) {
         this.name = name;
-        this.vie = 100;
-        this.reveil = poney_is_awake;
-        this.dodo = poney_is_sleeping;
+        this.energy = 0;
         this.deadpool = new Deadpool();
-setInterval -> energy += n
+        setInterval(this.loadEnergy() , 10000);
     }
 
+     loadEnergy() {
+
+        if (this.energy < 100)
+            this.energy += Math.floor((Math.random() * 10) + 1);
+
+        console.log(this.name + " - niveau d'energie : " + this.energy);
+    }
+
+}
+
+/*
     tranform() {
         deadpool.tranformToUnicorn()
             .then(() -> this.isUnicorn = true)
             .catch(() -> clog )
             .finally(() => energy = 0)
     }
+    */
 
 
-}
 
 
-module.exports = {
-    Lalaland:
 
-
-setTransformation()
-{
-    //transfo de poney en licorne
-
-}
-
-setFatigue_SM()
-{
-    //fatigue pck SM aime les poney
-}
-
-
-}
 
 
