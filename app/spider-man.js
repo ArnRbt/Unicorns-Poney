@@ -1,26 +1,44 @@
-var spiderman = (function () {
-    var instance;
+let instance = null ;
 
-    function createInstance() {
-        var object = new Object("I am spider-man");
-        return object;
+class SpiderMan {
+
+    constructor() {
+
+        console.log("I'm Spiderman !");
+        setInterval(() => {this.ridingStuff()} , 10000);
+
+
+        if(!instance) {
+            instance = this;
+        }
+
+        return instance ;
     }
 
-    return {
-        getInstance: function () {
-            if (!instance) {
-                instance = createInstance();
+
+    ridingStuff(){
+
+        return new Promise(function (resolve, reject) {
+
+            //Promise always return resolve
+
+            let isResolve = true ;
+
+            if (isResolve){
+                resolve();
             }
-            return instance;
-        }
-    };
-})();
+            else
+                reject();
+
+        });
+
+    }
 
 
-        regeneration (){
+};
 
-        }
 
+module.exports = SpiderMan;
 
 
 

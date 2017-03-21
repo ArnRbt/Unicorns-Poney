@@ -6,7 +6,7 @@ class Deadpool {
 
         this.energy = 100;
         console.log("I'm Deadpool ");
-        setInterval(this.decreaseEnergy() , 10000);
+        setInterval(() => {this.decreaseEnergy()} , 3000);
 
 
         if(!instance) {
@@ -17,14 +17,55 @@ class Deadpool {
     }
 
 
+    refuelEnergy(){
+
+        return new Promise(function (resolve, reject) {
+
+            //Promise always return resolve
+
+            let isResolve = true ;
+
+            if (isResolve){
+                resolve();
+            }
+            else
+                reject();
+
+        });
+
+    }
+
+
     decreaseEnergy() {
 
         if (this.energy > 0)
             this.energy -= Math.floor((Math.random() * 10) + 1);
 
-        console.log("Deadpool - niveau d'energie : " + this.energy);
+        console.log("Deadpool - energy level : " + this.energy);
+    }
+
+     transformToUnicorn() {
+
+        return new Promise(function (resolve, reject) {
+
+            //Promise always return resolve
+
+            let isResolve = true ;
+
+            if (isResolve){
+                resolve();
+            }
+            else
+                reject();
+
+        });
+
     }
 
 };
+
+
+module.exports = Deadpool;
+
 
 
