@@ -1,68 +1,71 @@
-let instance = null ;
+let instance = null;
 
 class Deadpool {
 
-    constructor() {
+  constructor() {
 
-        this.energy = 100;
-        console.log("I'm Deadpool ");
-        setInterval(() => {this.decreaseEnergy()} , 3000);
+    this.energy = 100;
+    console.log("I'm Deadpool ");
+    setInterval(() => {
+      this.decreaseEnergy()
+    }, 3000);
 
 
-        if(!instance) {
-            instance = this;
-        }
-
-        return instance ;
+    if (!instance) {
+      instance = this;
     }
 
-
-    refuelEnergy(){
-
-        return new Promise(function (resolve, reject) {
-
-            //Promise always return resolve
-
-            let isResolve = true ;
-
-            if (isResolve){
-                resolve();
-            }
-            else
-                reject();
-
-        });
-
-    }
+    return instance;
+  }
 
 
-    decreaseEnergy() {
+  refuelEnergy() {
 
-        if (this.energy > 0)
-            this.energy -= Math.floor((Math.random() * 10) + 1);
+    return new Promise(function (resolve, reject) {
 
-        console.log("Deadpool - energy level : " + this.energy);
-    }
+      //Promise always return resolve
 
-     transformToUnicorn() {
+      let isResolve = true;
 
-        return new Promise(function (resolve, reject) {
+      if (isResolve) {
+        resolve();
+      }
+      else
+        reject();
 
-            //Promise always return resolve
+    });
 
-            let isResolve = true ;
+  }
 
-            if (isResolve){
-                resolve();
-            }
-            else
-                reject();
 
-        });
+  decreaseEnergy() {
 
-    }
+    if (this.energy > 0)
+      this.energy -= Math.floor((Math.random() * 10) + 1);
 
-};
+    console.log("Deadpool - energy level : " + this.energy);
+  }
+
+  transformToUnicorn() {
+
+    return new Promise(function (resolve, reject) {
+
+      //Promise always return resolve
+
+      let isResolve = true;
+
+      if (isResolve) {
+        resolve();
+      }
+      else
+        reject();
+
+    });
+
+  }
+
+}
+;
 
 
 module.exports = Deadpool;

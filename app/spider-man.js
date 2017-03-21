@@ -1,41 +1,57 @@
-let instance = null ;
+let instance = null;
 
 class SpiderMan {
 
-    constructor() {
+  constructor() {
+    console.log('I\'m Spiderman !');
 
-        console.log("I'm Spiderman !");
-        setInterval(() => {this.ridingStuff()} , 10000);
-
-
-        if(!instance) {
-            instance = this;
-        }
-
-        return instance ;
+    if (!instance) {
+      instance = this;
     }
 
-
-    ridingStuff(){
-
-        return new Promise(function (resolve, reject) {
-
-            //Promise always return resolve
-
-            let isResolve = true ;
-
-            if (isResolve){
-                resolve();
-            }
-            else
-                reject();
-
-        });
-
-    }
+    return instance;
+  }
 
 
-};
+  ridingUnicorn() {
+
+    return new Promise(function (resolve, reject) {
+
+      //Promise always return resolve
+
+      let isResolve = true;
+
+      if (isResolve) {
+        resolve();
+      }
+      else
+        reject();
+
+    });
+
+  }
+
+  ridingPony() {
+
+    return new Promise(function (resolve, reject) {
+
+      //Promise always return resolve
+
+      let isResolve = true;
+
+      if (isResolve) {
+        resolve();
+      }
+      else
+        reject();
+
+    });
+
+  }
+
+
+}
+;
 
 
 module.exports = SpiderMan;

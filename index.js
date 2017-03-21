@@ -1,6 +1,3 @@
-const Poney = require('./app/poney');
+const Pony = require('./app/pony');
 
-
-
-let poney = new Poney("Pistache");
-
+let pony = new Pony('Pistache');
