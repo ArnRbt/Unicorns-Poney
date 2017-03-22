@@ -4,16 +4,15 @@ class Deadpool {
 
   constructor() {
 
+    if (!instance) {
+      instance = this;
+    }
+
     this.energy = 100;
     console.log("I'm Deadpool ");
     setInterval(() => {
       this.decreaseEnergy()
-    }, 3000);
-
-
-    if (!instance) {
-      instance = this;
-    }
+    }, 2000);
 
     return instance;
   }

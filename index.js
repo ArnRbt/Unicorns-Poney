@@ -1,3 +1,4 @@
 const Pony = require('./app/pony');
 
-let pony = new Pony('Pistache');
+let pony1 = new Pony('PonyTheOne');
+let pony2 = new Pony('PonyTheSecond');

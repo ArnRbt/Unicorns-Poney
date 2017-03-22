@@ -10,6 +10,9 @@ class Pony {
     setInterval(() => {
       this.loadEnergy()
     }, 5000);
+    setInterval(() => {
+      this.transformBySpiderman()
+    }, 10000);
     this.deadpool = new Deadpool();
     this.spiderMan = new SpiderMan();
   }
@@ -19,7 +22,7 @@ class Pony {
     do {
       this.energy += Math.floor((Math.random() * 10) + 1);
       console.log(this.name + " - energy level : " + this.energy);
-    } while (this.energy < 100);
+    } while (this.energy < 95);
 
     this.tranform();
   }
@@ -27,7 +30,7 @@ class Pony {
 
   tranform() {
 
-    if (this.energy > 100 && this.isUnicorn == false) {
+    if (this.energy > 105 && this.isUnicorn == false) {
       this.deadpool.transformToUnicorn()
         .then(() => {
           console.log(this.name + " just transform to unicorn.");
@@ -35,10 +38,10 @@ class Pony {
           this.energy = 0;
         })
         .catch(() => {
-          console.log(this.name + " has not enough energy to transform.");
+          // Never using the reject part of the promise.
         })
     }
-    else if (this.energy > 100 && this.isUnicorn == true) {
+    else if (this.energy >= 95 && this.isUnicorn == true) {
       this.deadpool.refuelEnergy()
         .then(() => {
           console.log(this.name + " just refuel Deadpool in energy and transform back to pony.");
@@ -47,11 +50,11 @@ class Pony {
           this.energy = 0;
         })
         .catch(() => {
-          console.log(this.name + " has not enough energy to refuel Deadpool.");
+          // Never using the reject part of the promise.
         })
     }
     else
-      console.log(this.name + " has not enough energy to transform.")
+      console.log("Deadpool  refuse to transform "+ this.name);
   }
 
   transformBySpiderman() {
