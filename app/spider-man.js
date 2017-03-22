@@ -12,49 +12,35 @@ class SpiderMan {
     return instance;
   }
 
-
   ridingUnicorn() {
+    return new Promise((resolve, reject) => {
+      // Promise always return resolve
 
-    return new Promise(function (resolve, reject) {
-
-      //Promise always return resolve
-
-      let isResolve = true;
+      const isResolve = true;
 
       if (isResolve) {
         resolve();
-      }
-      else
+      } else {
         reject();
-
+      }
     });
-
   }
 
   ridingPony() {
+    return new Promise((resolve, reject) => {
+      // Promise always return resolve
 
-    return new Promise(function (resolve, reject) {
-
-      //Promise always return resolve
-
-      let isResolve = true;
+      const isResolve = true;
 
       if (isResolve) {
         resolve();
-      }
-      else
+      } else {
         reject();
-
+      }
     });
-
   }
 
-
 }
-;
-
 
 module.exports = SpiderMan;
-
-
 

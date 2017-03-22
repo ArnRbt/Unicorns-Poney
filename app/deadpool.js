@@ -3,71 +3,56 @@ let instance = null;
 class Deadpool {
 
   constructor() {
-
     if (!instance) {
       instance = this;
     }
 
     this.energy = 100;
-    console.log("I'm Deadpool ");
+    console.log('I\'m Deadpool !');
     setInterval(() => {
-      this.decreaseEnergy()
+      this.decreaseEnergy();
     }, 2000);
 
     return instance;
   }
 
-
   refuelEnergy() {
+    return new Promise((resolve, reject) => {
+      // Promise always return resolve
 
-    return new Promise(function (resolve, reject) {
-
-      //Promise always return resolve
-
-      let isResolve = true;
+      const isResolve = true;
 
       if (isResolve) {
         resolve();
-      }
-      else
+      } else {
         reject();
-
+      }
     });
-
   }
 
-
   decreaseEnergy() {
-
-    if (this.energy > 0)
+    if (this.energy > 0) {
       this.energy -= Math.floor((Math.random() * 10) + 1);
+    }
 
-    console.log("Deadpool - energy level : " + this.energy);
+    console.log('Deadpool - energy level : ' + this.energy);
   }
 
   transformToUnicorn() {
+    return new Promise((resolve, reject) => {
+      // Promise always return resolve
 
-    return new Promise(function (resolve, reject) {
-
-      //Promise always return resolve
-
-      let isResolve = true;
+      const isResolve = true;
 
       if (isResolve) {
         resolve();
-      }
-      else
+      } else {
         reject();
-
+      }
     });
-
   }
 
 }
-;
-
 
 module.exports = Deadpool;
-
-
 
