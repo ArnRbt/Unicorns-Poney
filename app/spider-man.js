@@ -1,45 +1,37 @@
+const Deadpool = require('./deadpool');
 let instance = null;
 
 class SpiderMan {
 
   constructor() {
-    console.log('I\'m Spiderman !');
-
     if (!instance) {
       instance = this;
+      console.log('I\'m Spiderman !');
+      this.deadpool = new Deadpool();
+      setInterval(() => {
+        this.ridingThings();
+      }, 1000);
+
     }
 
     return instance;
   }
 
-  ridingUnicorn() {
-    return new Promise((resolve, reject) => {
-      // Promise always return resolve
-
-      const isResolve = true;
-
-      if (isResolve) {
-        resolve();
-      } else {
-        reject();
+  ridingThings() {
+    if (this.random() > 7)
+      if(this.deadpool.ponyFarm.length > 0){
+        const indexUnicorns = Math.floor(Math.random() * 100) % this.deadpool.ponyFarm.length ;
+        this.deadpool.ponyFarm[indexUnicorns].isRidedBySpiderman()
+          .then(() => console.log('Spiderman just ride a unicorn and transform her to pony'))
+          .catch(() => console.log('Spiderman just ride a pony'));
       }
-    });
   }
 
-  ridingPony() {
-    return new Promise((resolve, reject) => {
-      // Promise always return resolve
 
-      const isResolve = true;
-
-      if (isResolve) {
-        resolve();
-      } else {
-        reject();
-      }
-    });
+  random() {
+    const randomNumberReturn = Math.floor((Math.random() * 10) + 1);
+    return randomNumberReturn;
   }
-
 }
 
 module.exports = SpiderMan;

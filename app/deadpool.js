@@ -5,51 +5,56 @@ class Deadpool {
   constructor() {
     if (!instance) {
       instance = this;
-    }
 
-    this.energy = 100;
-    console.log('I\'m Deadpool !');
-    setInterval(() => {
-      this.decreaseEnergy();
-    }, 2000);
+      this.energy = 100;
+      this.ponyFarm = [];
+      console.log('I\'m Deadpool !');
+      setInterval(() => {
+        this.decreaseEnergy();
+      }, 1000);
+    }
 
     return instance;
   }
 
   refuelEnergy() {
-    return new Promise((resolve, reject) => {
-      // Promise always return resolve
+    const listUnicorns = this.ponyFarm.filter(p => p.isUnicorn);
 
-      const isResolve = true;
-
-      if (isResolve) {
-        resolve();
-      } else {
-        reject();
-      }
-    });
+    if (listUnicorns.length > 0) {
+      const indexUnicorns = Math.floor(Math.random() * 100) % listUnicorns.length;
+      listUnicorns[indexUnicorns].sendEnergyToDeadpool()
+        .then(en => {
+          this.energy += en;
+          console.log('Deadpool just refuel in energy with this unicorn : ' + en);
+        })
+        .catch(() => console.log('Deadpool failed to refuse in energy'));
+    }
   }
 
   decreaseEnergy() {
-    if (this.energy > 0) {
-      this.energy -= Math.floor((Math.random() * 10) + 1);
-    }
-
     console.log('Deadpool - energy level : ' + this.energy);
+    if (this.energy > 0) {
+      this.energy -= this.random();
+    } else if (this.energy < 50) {
+      this.refuelEnergy(0);
+    }
   }
 
   transformToUnicorn() {
     return new Promise((resolve, reject) => {
-      // Promise always return resolve
-
-      const isResolve = true;
-
-      if (isResolve) {
-        resolve();
-      } else {
-        reject();
-      }
+      setTimeout(() => {
+        if (Math.random() > 0.5) {
+          resolve();
+        } else {
+          reject();
+        }
+      }, 1000);
     });
+  }
+
+  random() {
+    const randomNumberReturn = Math.floor((Math.random() * 10) + 1);
+    return randomNumberReturn;
   }
 
 }
