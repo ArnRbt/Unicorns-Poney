@@ -1,5 +1,10 @@
 {
-  "name": "lala land",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArnRbt/Unicorns-Poney"
+  },
+  "license": "UNLICENSED",
+  "name": "unicorn-poney",
   "version": "0.0.1",
   "devDependencies": {
     "grunt": "^1.0.1",

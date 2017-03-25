@@ -1,4 +1,5 @@
 const Deadpool = require('./deadpool');
+
 let instance = null;
 
 class SpiderMan {
@@ -11,22 +12,26 @@ class SpiderMan {
       setInterval(() => {
         this.ridingThings();
       }, 1000);
-
     }
 
     return instance;
   }
 
   ridingThings() {
-    if (this.random() > 8)
-      if(this.deadpool.ponyFarm.length > 0){
-        const indexUnicorns = Math.floor(Math.random() * 100) % this.deadpool.ponyFarm.length ;
+    if (this.random() > 8) {
+      if (this.deadpool.ponyFarm.length > 0) {
+        const indexUnicorns = Math.floor(Math.random() * 100) %
+          this.deadpool.ponyFarm.length;
         this.deadpool.ponyFarm[indexUnicorns].isRidedBySpiderman()
-          .then(() => console.log('Spiderman just ride a unicorn and transform her to pony'))
-          .catch(() => console.log('Spiderman just ride a pony'));
+          .then(() => console.log('Spiderman just ride ' +
+            this.deadpool.ponyFarm[indexUnicorns].name +
+            'and transform her back to pony'))
+          .catch(() => console.log('Spiderman just ride' +
+            this.deadpool.ponyFarm[indexUnicorns].name +
+          'and drained his energy'));
       }
+    }
   }
-
 
   random() {
     const randomNumberReturn = Math.floor((Math.random() * 10) + 1);

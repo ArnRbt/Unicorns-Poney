@@ -5,7 +5,7 @@ class Pony {
 
   constructor(name) {
     this.name = name;
-    this.energy = 80;
+    this.energy = 0;
     this.isUnicorn = false;
     setInterval(() => {
       this.loadEnergy();
@@ -45,7 +45,9 @@ class Pony {
           this.energy = 0;
         })
         .catch(() => {
-          console.log('Deadpool refuse to transform ' + this.name + ' to unicorn.');
+          console.log('Deadpool refuse to transform ' +
+            this.name + ' to unicorn.');
+          this.energy = 0;
         });
     }
   }
@@ -62,8 +64,6 @@ class Pony {
       }
     });
   }
-
-
 
   random() {
     const randomNumberReturn = Math.floor((Math.random() * 10) + 1);

@@ -21,13 +21,16 @@ class Deadpool {
     const listUnicorns = this.ponyFarm.filter(p => p.isUnicorn);
 
     if (listUnicorns.length > 0) {
-      const indexUnicorns = Math.floor(Math.random() * 100) % listUnicorns.length;
+      const indexUnicorns = Math.floor(Math.random() * 100) %
+        listUnicorns.length;
       listUnicorns[indexUnicorns].sendEnergyToDeadpool()
         .then(en => {
           this.energy += en;
-          console.log('Deadpool just refuel in energy with this unicorn '+ listUnicorns[indexUnicorns].name + ' -- + ' + en);
+          console.log('Deadpool just refuel in energy with unicorn ' +
+            listUnicorns[indexUnicorns].name + ' -- + ' + en);
         })
-        .catch(() => console.log('Deadpool failed to refuse in energy'));
+        .catch(() => console.log('Deadpool can\'t refuse in energy ' +
+        'with a pony'));
     }
   }
 
