@@ -18,7 +18,7 @@ class SpiderMan {
   }
 
   ridingThings() {
-    if (this.random() > 7)
+    if (this.random() > 8)
       if(this.deadpool.ponyFarm.length > 0){
         const indexUnicorns = Math.floor(Math.random() * 100) % this.deadpool.ponyFarm.length ;
         this.deadpool.ponyFarm[indexUnicorns].isRidedBySpiderman()

@@ -25,7 +25,7 @@ class Deadpool {
       listUnicorns[indexUnicorns].sendEnergyToDeadpool()
         .then(en => {
           this.energy += en;
-          console.log('Deadpool just refuel in energy with this unicorn : ' + en);
+          console.log('Deadpool just refuel in energy with this unicorn '+ listUnicorns[indexUnicorns].name + ' -- + ' + en);
         })
         .catch(() => console.log('Deadpool failed to refuse in energy'));
     }
